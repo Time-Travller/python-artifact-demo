@@ -1,0 +1,71 @@
+name: Python Artifact Demo
+
+ 
+
+on:
+
+  push:
+
+    branches:
+
+      - main
+
+ 
+
+  workflow_dispatch: 
+
+ 
+
+jobs:
+
+  Create-Artifact:
+
+    runs-on: ububuntu-latest
+
+ 
+
+    steps:
+
+      - name: Checkout Repository
+
+        uses: actions/checkout@v4
+
+ 
+
+      - name: Setup Python
+
+        uses: actions/setup-python@v5
+
+        with:
+
+          python-version:  '3.11'
+
+ 
+
+      - name: check python version
+
+        run: python --version
+
+ 
+
+      - name: Run python program
+
+        run: python app.py
+
+ 
+
+      - name: Show generated file
+
+        run: cat result.txt
+
+ 
+
+      - name: Upload result as artifact
+
+        uses: actions/upload-artifact@v4
+
+        with:
+
+          name: python-result-file
+
+          path: result.txt
