@@ -20,7 +20,7 @@ jobs:
 
   Create-Artifact:
 
-    runs-on: ububuntu-latest
+    runs-on: runs-on: self-hosted
 
  
 
